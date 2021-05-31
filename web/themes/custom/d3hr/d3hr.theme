@@ -1,0 +1,21 @@
+<?php
+/**
+ * @file
+ * Theme functions
+ */
+
+// Include all files from the includes directory.
+$includes_path = dirname(__FILE__) . '/includes/*.inc';
+foreach (glob($includes_path) as $filename) {
+  require_once dirname(__FILE__) . '/includes/' . basename($filename);
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function d3hr_theme_suggestions_page_alter(array &$suggestions, array $variables) {
+  $route_name = \Drupal::routeMatch()->getRouteName();
+  if (in_array($route_name, ['user.login', 'user.pass', 'user.reset.login', 'user.reset', 'user.reset.form'])) {
+    $suggestions[] = 'page__login';
+  }
+}

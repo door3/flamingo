@@ -1,0 +1,14 @@
+uuid: c39198c4-cd4d-4674-ac62-4484459229ac
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.d_principal_consultants
+  module:
+    - user
+id: user_add_role_action.d_principal_consultants
+label: 'Add the D|Principal Consultants role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: d_principal_consultants

@@ -1,0 +1,21 @@
+uuid: 334d9d34-5465-4dee-93e7-ba8722769bbe
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.f_type_of_work
+  module:
+    - options
+    - user
+id: user.user.f_type_of_work
+field_name: f_type_of_work
+entity_type: user
+bundle: user
+label: 'Type of Work'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

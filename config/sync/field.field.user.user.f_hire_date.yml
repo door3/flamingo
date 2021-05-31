@@ -1,0 +1,22 @@
+uuid: d28b7e41-766d-4122-ba36-1814d70c805b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.f_hire_date
+  module:
+    - user
+id: user.user.f_hire_date
+field_name: f_hire_date
+entity_type: user
+bundle: user
+label: 'Hire Date'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1611231978
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

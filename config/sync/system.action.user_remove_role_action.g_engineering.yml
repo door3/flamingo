@@ -1,0 +1,14 @@
+uuid: 85607b50-365a-4459-ba84-a7e217d768b2
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.g_engineering
+  module:
+    - user
+id: user_remove_role_action.g_engineering
+label: 'Remove the G|Engineering role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: g_engineering

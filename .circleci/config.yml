@@ -1,0 +1,177 @@
+init: &init
+  docker:
+    - image: docksal/ci-agent:1.8-php
+  working_directory: ~/agent
+
+run-envvars: &run-envvars
+  name: Configuring build environment
+  command: |
+    echo "TERMINUS_ENV=pr-${CI_PULL_REQUEST##*/}" >> $BASH_ENV
+    echo "NOTIFY='scripts/github/add-commit-comment {project} {sha} \"Created multidev environment [{site}#{env}]({dashboard-url}).\" {site-url}'" >> $BASH_ENV
+    echo "PATH=$PATH:~/bin:tests/scripts" >> $BASH_ENV && source $BASH_ENV
+git-config: &git-config
+  name: Git configuration
+  command: |
+    if [ ! -d "$HOME/.ssh" ]; then
+      mkdir $HOME/.ssh
+    fi
+    echo 'StrictHostKeyChecking no' > ~/.ssh/config
+    echo "Begin build for $TERMINUS_ENV. Pantheon test environment is $TERMINUS_SITE.$TERMINUS_ENV"
+    if [ -n "$GITHUB_TOKEN" ] ; then
+     composer -n config --global github-oauth.github.com $GITHUB_TOKEN
+    fi
+    git config --global user.email "$GIT_EMAIL"
+    git config --global user.name "Circle CI"
+    git config --global core.fileMode false
+run-sandbox: &run-sandbox
+  name: Sandbox provisioning
+  command: |
+    echo 'export PATH=$HOME/.composer/vendor/bin:$PATH' >> $BASH_ENV && source $BASH_ENV
+    terminus -n auth:login --machine-token="$TERMINUS_TOKEN"
+    terminus env:wake -n "$TERMINUS_SITE.dev"
+    chmod +x scripts/github/add-commit-comment
+    terminus build:env:create -n "$TERMINUS_SITE.dev" "$TERMINUS_ENV" --yes --clone-content --db-only --notify="$NOTIFY"
+version: 2
+jobs:
+  code-sniffers:
+    <<: *init
+    steps:
+      - checkout
+      - run:
+          name: Running PHP Codesniffer
+          command: |
+            echo -e "Running Code Sniffer check...\n"
+            composer -n global require "drupal/coder"
+            composer -n global require "squizlabs/php_codesniffer:3.*"
+            composer -n global require "php-console/php-console"
+            git config --global user.email "$GIT_EMAIL"
+            git config --global user.name "Circle CI"
+            git config --global core.fileMode false
+            echo 'export PATH=$HOME/.composer/vendor/bin:$PATH' >> $BASH_ENV && source $BASH_ENV
+            bash scripts/ci/phpcs.sh
+      - store_test_results:
+          path: ~/agent/web/phpcs/
+      - store_artifacts:
+          path: ~/agent/web/phpcs/
+
+  build:
+    <<: *init
+    steps:
+      - checkout
+      - run:
+          <<: *run-envvars
+      - run:
+          <<: *git-config
+      - restore_cache:
+          keys:
+            - composer-{{ checksum "/home/agent/.composer/composer.json" }}
+      - run:
+          name: Install terminus build tools plugin
+          command: |
+            composer -n global require "hirak/prestissimo:^0.3"
+            composer -n global require "symfony/yaml:^3"
+            composer -n global require pantheon-systems/terminus "^1"
+            echo 'export PATH=$HOME/.composer/vendor/bin:$PATH' >> $BASH_ENV && source $BASH_ENV
+            mkdir -p ~/.terminus/plugins
+            composer -n create-project -d ~/.terminus/plugins pantheon-systems/terminus-build-tools-plugin:^1
+            composer -n create-project -d ~/.terminus/plugins pantheon-systems/terminus-secrets-plugin:^1
+      - run:
+          name: Run composer install
+          command: |
+            composer install --no-ansi --no-dev --no-interaction --optimize-autoloader --no-progress --prefer-dist --ignore-platform-reqs
+      - run:
+          name: Run npm install
+          command: |
+            sudo apk add --update nodejs-npm
+            (cd ./web/themes/custom/d3hr && exec npm install)
+      - run:
+          name: Run theme compile
+          command: |
+            (cd ./web/themes/custom/d3hr && exec npm run production)
+      - save_cache:
+          key: composer-{{ checksum "/home/agent/.composer/composer.json" }}
+          paths:
+            - /home/agent/.composer/
+      - persist_to_workspace:
+          root: /home/agent
+          paths:
+            - .terminus
+            - .gitconfig
+            - .composer
+            - agent
+            - .ssh
+
+  sandbox:
+    <<: *init
+    steps:
+      - run:
+          <<: *run-envvars
+      - run:
+          <<: *git-config
+      - attach_workspace:
+          at: /home/agent
+      - run: echo $PRIVATE_KEY | base64 -d > /home/agent/.ssh/id_rsa
+      - run:
+          <<: *run-sandbox
+
+  deploy:
+    <<: *init
+    steps:
+      - run:
+          <<: *run-envvars
+      - run:
+          <<: *git-config
+      - attach_workspace:
+          at: /home/agent
+      - run: echo $PRIVATE_KEY | base64 -d > /home/agent/.ssh/id_rsa
+      - run:
+          name: Terminus login
+          command: |
+            echo 'export PATH=$HOME/.composer/vendor/bin:$PATH' >> $BASH_ENV && source $BASH_ENV
+            terminus -n auth:login --machine-token="$TERMINUS_TOKEN"
+      - run:
+          name: Push code to Pantheon
+          command: |
+            DEPLOY_BRANCH=$CIRCLE_BRANCH
+            if [[ $CIRCLE_BRANCH == release* ]]; then
+              DEPLOY_BRANCH="${CIRCLE_BRANCH/release/r}"
+              DEPLOY_BRANCH="${DEPLOY_BRANCH//'.'/'-'}"
+            elif [[ $CIRCLE_BRANCH == hotfix* ]]; then
+              DEPLOY_BRANCH="${CIRCLE_BRANCH/hotfix/h}"
+              DEPLOY_BRANCH="${DEPLOY_BRANCH//'.'/'-'}"
+            fi
+            echo "Branch $DEPLOY_BRANCH"
+            if [[ $DEPLOY_BRANCH == 'master' ]]; then
+              terminus build:env:push "$TERMINUS_SITE.dev"
+            elif [[ $DEPLOY_BRANCH == 'develop' ]]; then
+              terminus build:env:push "$TERMINUS_SITE.dev"
+            else
+              terminus build:env:create -n "$TERMINUS_SITE.dev" "$DEPLOY_BRANCH" --yes --clone-content --db-only --notify="$NOTIFY"
+            fi
+      - run:
+          name: Delete Merged PRs
+          command: |
+            terminus -n build:env:delete:pr "$TERMINUS_SITE" --yes
+            terminus -n build:env:delete:ci "$TERMINUS_SITE" --keep=2 --yes
+            if [[ $CIRCLE_BRANCH = "master" ]]; then
+              terminus -n build:env:delete $TERMINUS_SITE '^release-' --delete-branch
+              terminus -n build:env:delete $TERMINUS_SITE '^hotfix-' --delete-branch
+            fi
+workflows:
+  version: 2
+  Pantheon-workflow:
+    jobs:
+      - build:
+          context: org-pantheon
+          filters:
+            branches:
+              only:
+                - master
+      - deploy:
+          context: org-pantheon
+          requires:
+            - build
+          filters:
+            branches:
+              only:
+                - master

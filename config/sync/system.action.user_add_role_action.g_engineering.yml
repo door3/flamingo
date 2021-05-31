@@ -1,0 +1,14 @@
+uuid: 12b71856-6f02-4f5f-b497-92278822cea3
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.g_engineering
+  module:
+    - user
+id: user_add_role_action.g_engineering
+label: 'Add the G|Engineering role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: g_engineering

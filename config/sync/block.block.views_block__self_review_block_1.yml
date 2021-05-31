@@ -1,0 +1,40 @@
+uuid: e29a30f3-41ee-4449-8cd8-20676b416cef
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.self_review
+  module:
+    - system
+    - user
+    - views
+  theme:
+    - d3hr
+id: views_block__self_review_block_1
+theme: d3hr
+region: content
+weight: -2
+provider: null
+plugin: 'views_block:self_review-block_1'
+settings:
+  id: 'views_block:self_review-block_1'
+  label: 'Employee Self Review'
+  provider: views
+  label_display: visible
+  views_label: 'Employee Self Review'
+  items_per_page: none
+  context_mapping: {  }
+visibility:
+  request_path:
+    id: request_path
+    pages: "/primary-review/*\r\n/secondary-review/*"
+    negate: false
+  user_role:
+    id: user_role
+    roles:
+      hr_admin: hr_admin
+      primary_reviewer: primary_reviewer
+      secondary_reviewer: secondary_reviewer
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'

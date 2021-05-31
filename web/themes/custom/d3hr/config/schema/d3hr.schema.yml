@@ -1,0 +1,5 @@
+# Schema for the configuration files of the d3hr theme.
+
+d3hr.settings:
+  type: theme_settings
+  label: 'd3hr settings'

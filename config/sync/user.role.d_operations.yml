@@ -1,0 +1,9 @@
+uuid: c2c6e895-877b-4ea0-8b51-b6250ce687f4
+langcode: en
+status: true
+dependencies: {  }
+id: d_operations
+label: D|Operations
+weight: 3
+is_admin: null
+permissions: {  }

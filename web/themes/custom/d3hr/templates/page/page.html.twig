@@ -1,0 +1,81 @@
+{#
+/**
+ * @file
+ * Template for the main page.
+ */
+#}
+<div class="pages page">
+  {% embed '@d3hr/navbar/navbar.twig' with {
+    placement: 'sticky-top',
+    container: 'fixed',
+    color: 'light',
+    utility_classes: ['bg-primary'],
+  } %}
+
+    {% block branding %}
+      {% if page.navbar_branding %}
+        {{ page.navbar_branding }}
+      {% endif %}
+    {% endblock %}
+
+    {% block left %}
+      {% if page.navbar_left %}
+        <div class="mr-auto">
+          {{ page.navbar_left }}
+        </div>
+      {% endif %}
+    {% endblock %}
+
+    {% block right %}
+      {% if page.navbar_right %}
+        <div class="ml-auto">
+          {{ page.navbar_right }}
+        </div>
+      {% endif %}
+    {% endblock %}
+  {% endembed %}
+
+  <main class="pt-4 pb-4">
+    {% if page.header %}
+      <header class="page__header mb-3">
+        <div class="container-fluid">
+          {{ page.header }}
+        </div>
+      </header>
+    {% endif %}
+
+    {% if page.content %}
+      <div class="page__content">
+        <div class="container-fluid">
+          <div class="row">
+            {% if page.sidebar_left %}
+              <div class="sidebar-left col-2">
+                {{ page.sidebar_left }}
+              </div>
+            {% endif %}
+
+            <div class="col">
+              {{ page.content }}
+            </div>
+
+            {% if page.sidebar_right %}
+              <div class="sidebar-right col-2">
+                {{ page.sidebar_right }}
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  </main>
+
+  {% if page.footer %}
+    <footer class="page__footer">
+      <div class="container-fluid">
+        <div class="d-flex justify-content-md-between align-items-md-center">
+          {{ page.footer }}
+        </div>
+      </div>
+    </footer>
+  {% endif %}
+</div>

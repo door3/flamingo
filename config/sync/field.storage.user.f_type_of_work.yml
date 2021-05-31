@@ -1,0 +1,31 @@
+uuid: daa4311f-d2bf-4106-8f5e-da6219831bbd
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - options
+    - user
+third_party_settings:
+  field_permissions:
+    permission_type: custom
+id: user.f_type_of_work
+field_name: f_type_of_work
+entity_type: user
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: employee
+      label: Employee
+    -
+      value: contractor
+      label: Contractor
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

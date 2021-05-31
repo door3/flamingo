@@ -1,0 +1,29 @@
+api_version: 1
+
+php_version: 7.4
+
+web_docroot: true
+
+workflows:
+  sync_code:
+    after:
+      -
+        type: webphp
+        description: 'Run Drupal tasks'
+        script: pantheon-scripts/drupal-tasks.php
+  deploy:
+    after:
+      -
+        type: webphp
+        description: 'Run Drupal tasks'
+        script: pantheon-scripts/drupal-tasks.php
+      -
+        type: webphp
+        description: 'Enable cache modules'
+        script: pantheon-scripts/drupal-enable-cache.php
+  clone_database:
+    after:
+      -
+        type: webphp
+        description: 'Run Drupal tasks'
+        script: pantheon-scripts/drupal-tasks.php

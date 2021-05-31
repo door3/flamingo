@@ -1,0 +1,14 @@
+uuid: f9fb1b3f-6184-4f5b-9902-031acdc08953
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.d_leadership
+  module:
+    - user
+id: user_add_role_action.d_leadership
+label: 'Add the D|Leadership role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: d_leadership

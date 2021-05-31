@@ -1,0 +1,39 @@
+// Page
+// -----------------------------------------------------------------------------
+
+.page__content {
+  .table-responsive {
+    font-size: .82rem;
+  }
+
+  .views-exposed-form {
+    @extend .d-flex;
+
+    .form-item {
+      @extend .mr-4;
+    }
+
+    .form-actions {
+      @extend .mt-auto;
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      border-radius: 5rem;
+    }
+  }
+
+  .description {
+    @extend .text-muted;
+    @extend .small;
+    @extend .pb-3;
+  }
+}
+
+
+.compare-reviews {
+  display: flex;
+  flex-direction: row;
+  overflow: auto;
+  width: 100%;
+}

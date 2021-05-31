@@ -1,0 +1,42 @@
+{#
+/**
+ * @file
+ * Template for the main page.
+ */
+#}
+<div class="page page-login d-flex">
+  <main class="w-100">
+    {% if page.header %}
+      <header class="page__header mb-3">
+        <div class="container-fluid">
+          {{ page.header }}
+        </div>
+      </header>
+    {% endif %}
+
+    {% if page.content %}
+      <div class="page__content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-6 info-section d-flex justify-content-center align-items-center d-flex flex-column pb-4 position-relative">
+              <h2 class="welcome-text mb-3 pl-1">{{ 'Welcome to'|t }}</h2>
+              <a class="mb-3 mb-md-5 welcome-logo" href="/">
+                <img src="/{{ active_theme_path() }}/assets/images/flamingo-login-logo.png" class="w-100" alt="Flamingo Review Tool" title="Flamingo Review Tool"/>
+              </a>
+              <h2 class="welcome-sub-text pl-1">{{ 'Log in to access your account'|t }}</h2>
+            </div>
+
+            <div class="col-6 login-form-section d-flex justify-content-center align-items-center">
+              {{ page.content }}
+
+              <div class="project-support fixed-bottom p-3 text-align-right">
+                {{ 'Project created by <a href="https://door3.com">DOOR3</a>'|t }}
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  </main>
+</div>

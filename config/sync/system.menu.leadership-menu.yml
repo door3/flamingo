@@ -1,0 +1,8 @@
+uuid: 16b85a60-9660-4cac-9cb9-f602d2b5125f
+langcode: en
+status: true
+dependencies: {  }
+id: leadership-menu
+label: 'Leadership & HR dashboard'
+description: ''
+locked: false

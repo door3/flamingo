@@ -1,0 +1,18 @@
+uuid: 67716b53-6053-4bce-8350-dff0ef65e9f6
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: btW6TFHajhy7Eo6YUvdFiPh4TcPggo8GBXYctjV6zag
+id: authenticated
+label: 'Authenticated user'
+weight: -9
+is_admin: false
+permissions:
+  - 'access content'
+  - 'access shortcuts'
+  - 'post comments'
+  - 'search content'
+  - 'skip comment approval'
+  - 'use text format restricted_html'
+  - 'view media'

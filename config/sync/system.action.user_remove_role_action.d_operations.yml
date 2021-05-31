@@ -1,0 +1,14 @@
+uuid: 1ab3787a-ece7-4bb1-9145-e6edd63acb9e
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.d_operations
+  module:
+    - user
+id: user_remove_role_action.d_operations
+label: 'Remove the D | Operations role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: d_operations

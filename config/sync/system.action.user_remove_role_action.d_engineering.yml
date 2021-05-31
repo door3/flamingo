@@ -1,0 +1,14 @@
+uuid: 5a7f900a-ea90-4973-99fc-2ec3d81daf3e
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.d_engineering
+  module:
+    - user
+id: user_remove_role_action.d_engineering
+label: 'Remove the D|Engineering role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: d_engineering

@@ -1,0 +1,46 @@
+uuid: 0e1b577f-d4a3-4823-b542-268c9a08c456
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - options
+    - user
+third_party_settings:
+  field_permissions:
+    permission_type: custom
+id: user.f_department
+field_name: f_department
+entity_type: user
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: leadership
+      label: Leadership
+    -
+      value: engineering
+      label: Engineering
+    -
+      value: pc
+      label: 'Principal Consultants'
+    -
+      value: operations
+      label: Operations
+    -
+      value: pmo
+      label: PMO
+    -
+      value: qa
+      label: 'Quality Assurance'
+    -
+      value: ue
+      label: 'User Experience'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

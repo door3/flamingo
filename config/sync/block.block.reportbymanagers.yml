@@ -1,0 +1,34 @@
+uuid: 3023e7c3-a270-4ca2-a097-48794ad5127d
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.report-by-managers
+  module:
+    - system
+    - user
+  theme:
+    - d3hr
+id: reportbymanagers
+theme: d3hr
+region: sidebar_left
+weight: 0
+provider: null
+plugin: 'system_menu_block:report-by-managers'
+settings:
+  id: 'system_menu_block:report-by-managers'
+  label: 'Report by managers'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  user_role:
+    id: user_role
+    roles:
+      hr_admin: hr_admin
+      leadership: leadership
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'

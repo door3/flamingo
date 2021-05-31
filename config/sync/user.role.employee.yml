@@ -1,0 +1,29 @@
+uuid: 7ae3aacf-d9eb-43cd-9586-edb32846f0c1
+langcode: en
+status: true
+dependencies: {  }
+id: employee
+label: Employee
+weight: -3
+is_admin: null
+permissions:
+  - 'access user profiles'
+  - 'change own username'
+  - 'edit own webform submission'
+  - 'view any webform submission'
+  - 'view f_department'
+  - 'view f_eligibility'
+  - 'view f_hire_date'
+  - 'view f_location'
+  - 'view f_secondary_reviewer'
+  - 'view f_type_of_work'
+  - 'view f_your_line_manager'
+  - 'view own f_department'
+  - 'view own f_eligibility'
+  - 'view own f_hire_date'
+  - 'view own f_location'
+  - 'view own f_secondary_reviewer'
+  - 'view own f_type_of_work'
+  - 'view own f_your_line_manager'
+  - 'view own webform submission'
+  - 'view webform submissions own node'

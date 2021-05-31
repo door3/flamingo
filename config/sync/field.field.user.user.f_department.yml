@@ -1,0 +1,21 @@
+uuid: bc844c26-76d9-49b3-a41b-dc0b3aecc7c0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.f_department
+  module:
+    - options
+    - user
+id: user.user.f_department
+field_name: f_department
+entity_type: user
+bundle: user
+label: Department
+description: 'Your department'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,24 @@
+uuid: 35fe469d-4737-4cd5-8726-425560490191
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.f_eligibility
+  module:
+    - user
+id: user.user.f_eligibility
+field_name: f_eligibility
+entity_type: user
+bundle: user
+label: 'Exclude from Eligibility'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

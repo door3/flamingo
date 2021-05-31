@@ -1,0 +1,9 @@
+uuid: 9e5fc32d-4b3e-4a3c-9a67-f43711ed7697
+langcode: en
+status: true
+dependencies: {  }
+id: d_project_management
+label: 'D|Project Management'
+weight: 1
+is_admin: null
+permissions: {  }

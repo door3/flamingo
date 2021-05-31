@@ -1,0 +1,8 @@
+uuid: 913d4c13-55e2-4cc3-a19c-cb5f1365803c
+langcode: en
+status: true
+dependencies: {  }
+id: self-review-menu
+label: 'Self Review menu'
+description: ''
+locked: false

@@ -1,0 +1,14 @@
+uuid: dd39d7f4-fdbe-4a47-88c0-c8a7a5d3bfb1
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.secondary_reviewer
+  module:
+    - user
+id: user_add_role_action.secondary_reviewer
+label: 'Add the Secondary reviewer role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: secondary_reviewer

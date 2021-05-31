@@ -1,0 +1,35 @@
+uuid: 3731947d-8194-4473-939e-66c580a9e11d
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.engineering-group
+  module:
+    - system
+    - user
+  theme:
+    - d3hr
+id: engineeringgroup
+theme: d3hr
+region: sidebar_left
+weight: -8
+provider: null
+plugin: 'system_menu_block:engineering-group'
+settings:
+  id: 'system_menu_block:engineering-group'
+  label: 'Engineering group'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  user_role:
+    id: user_role
+    roles:
+      administrator: administrator
+      hr_admin: hr_admin
+      g_engineering: g_engineering
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'

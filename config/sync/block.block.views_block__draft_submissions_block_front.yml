@@ -1,0 +1,30 @@
+uuid: f2b5d0dd-f2d6-435d-8893-5a663ffd17e8
+langcode: en
+status: false
+dependencies:
+  config:
+    - views.view.draft_submissions
+  module:
+    - system
+    - views
+  theme:
+    - d3hr
+id: views_block__draft_submissions_block_front
+theme: d3hr
+region: content
+weight: 3
+provider: null
+plugin: 'views_block:draft_submissions-block_1'
+settings:
+  id: 'views_block:draft_submissions-block_1'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+  items_per_page: none
+  context_mapping: {  }
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false

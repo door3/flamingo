@@ -1,0 +1,38 @@
+uuid: 0627b9f8-912e-4f32-bb35-472643f7844c
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.manager_reviews
+  module:
+    - system
+    - user
+    - views
+  theme:
+    - d3hr
+id: views_block__manager_reviews_block_manager_reviews
+theme: d3hr
+region: content
+weight: -1
+provider: null
+plugin: 'views_block:manager_reviews-block_manager_reviews'
+settings:
+  id: 'views_block:manager_reviews-block_manager_reviews'
+  label: 'Manager reviews'
+  provider: views
+  label_display: visible
+  views_label: 'Manager reviews'
+  items_per_page: '48'
+visibility:
+  request_path:
+    id: request_path
+    pages: '/primary-review/*'
+    negate: false
+  user_role:
+    id: user_role
+    roles:
+      hr_admin: hr_admin
+      primary_reviewer: primary_reviewer
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'

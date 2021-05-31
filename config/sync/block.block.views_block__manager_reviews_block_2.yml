@@ -1,0 +1,39 @@
+uuid: 22114308-b040-4c0c-a155-a517810f0021
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.manager_reviews
+  module:
+    - system
+    - user
+    - views
+  theme:
+    - d3hr
+id: views_block__manager_reviews_block_2
+theme: d3hr
+region: content
+weight: 0
+provider: null
+plugin: 'views_block:manager_reviews-block_2'
+settings:
+  id: 'views_block:manager_reviews-block_2'
+  label: 'Manager reviews'
+  provider: views
+  label_display: visible
+  views_label: 'Manager reviews'
+  items_per_page: '48'
+  context_mapping: {  }
+visibility:
+  request_path:
+    id: request_path
+    pages: '/secondary-review/*'
+    negate: false
+  user_role:
+    id: user_role
+    roles:
+      hr_admin: hr_admin
+      secondary_reviewer: secondary_reviewer
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'

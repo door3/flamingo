@@ -1,0 +1,14 @@
+uuid: 0b178cab-7cd9-46fa-abfc-b096ea6395e9
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.d_business_analysis
+  module:
+    - user
+id: user_remove_role_action.d_business_analysis
+label: 'Remove the D|Business Analysis role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: d_business_analysis

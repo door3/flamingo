@@ -1,0 +1,168 @@
+uuid: ef204341-6539-463b-bc52-ec4826e66e6e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.user.user.f_department
+    - field.field.user.user.f_eligibility
+    - field.field.user.user.f_hire_date
+    - field.field.user.user.f_location
+    - field.field.user.user.f_secondary_reviewer
+    - field.field.user.user.f_termination_date
+    - field.field.user.user.f_title
+    - field.field.user.user.f_type_of_work
+    - field.field.user.user.f_your_line_manager
+    - field.field.user.user.user_picture
+    - image.style.profile_220x220
+  module:
+    - field_group
+    - options
+    - svg_image
+    - user
+third_party_settings:
+  field_group:
+    group_left:
+      children:
+        - user_picture
+        - f_title
+      parent_name: group_profile_wrap
+      weight: 3
+      format_type: html_element
+      region: content
+      format_settings:
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: 'd-flex flex-column mr-5'
+      label: Left
+    group_right:
+      children:
+        - f_type_of_work
+        - f_your_line_manager
+        - f_department
+        - f_secondary_reviewer
+        - f_location
+        - f_hire_date
+      parent_name: group_profile_wrap
+      weight: 4
+      format_type: html_element
+      region: content
+      format_settings:
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: 'd-flex flex-wrap profile-items'
+      label: Right
+    group_profile_wrap:
+      children:
+        - group_left
+        - group_right
+      parent_name: ''
+      weight: 0
+      format_type: html_element
+      region: content
+      format_settings:
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: 'd-flex flex-row card p-4'
+      label: 'Profile Wrap'
+_core:
+  default_config_hash: V51QPCKkgNREKtSmB9Iu2wmAMEpktVpnzklWaZV8UYo
+id: user.user.default
+targetEntityType: user
+bundle: user
+mode: default
+content:
+  f_department:
+    weight: 9
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  f_hire_date:
+    weight: 12
+    label: above
+    settings:
+      date_format: custom
+      custom_date_format: 'M d, Y'
+      timezone: ''
+    third_party_settings: {  }
+    type: timestamp
+    region: content
+  f_location:
+    weight: 11
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  f_secondary_reviewer:
+    weight: 10
+    label: above
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  f_title:
+    weight: 2
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  f_type_of_work:
+    weight: 7
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  f_your_line_manager:
+    weight: 8
+    label: above
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  masquerade:
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  user_picture:
+    type: image
+    weight: 1
+    region: content
+    settings:
+      image_style: profile_220x220
+      image_link: ''
+      svg_render_as_image: true
+      svg_attributes:
+        width: null
+        height: null
+    third_party_settings: {  }
+    label: hidden
+hidden:
+  f_eligibility: true
+  f_termination_date: true
+  member_for: true

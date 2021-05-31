@@ -1,0 +1,30 @@
+uuid: 443503f1-7a20-4307-b762-883bc57ed3b8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.f_secondary_reviewer
+  module:
+    - user
+id: user.user.f_secondary_reviewer
+field_name: f_secondary_reviewer
+entity_type: user
+bundle: user
+label: 'Secondary reviewer'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings:
+    include_anonymous: true
+    filter:
+      type: _none
+    target_bundles: null
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+field_type: entity_reference

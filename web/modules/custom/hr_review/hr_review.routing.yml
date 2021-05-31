@@ -1,0 +1,33 @@
+hr_review.primary.review:
+  path: '/primary-review/{user}'
+  defaults:
+    _title: 'Employee Review'
+    _controller: \Drupal\hr_review\Controller\PrimaryReviewController::content
+  requirements:
+    _custom_access: '\Drupal\hr_review\Access\ReviewAccess:access'
+  options:
+    parameters:
+      user:
+        type: entity:user
+
+hr_review.secondary.review:
+  path: '/secondary-review/{user}'
+  defaults:
+    _title: 'Employee Review'
+    _controller: \Drupal\hr_review\Controller\SecondaryReviewController::content
+  requirements:
+    _custom_access: '\Drupal\hr_review\Access\ReviewAccess:access'
+  options:
+    parameters:
+      user:
+        type: entity:user
+
+jonard_core.footer:
+  path: '/admin/review/review-reminder'
+  defaults:
+    _title: 'Review Reminder'
+    _form: \Drupal\hr_review\Form\ReviewReminderForm
+  requirements:
+    _permission: 'administer site configuration'
+  options:
+    _admin_route: TRUE

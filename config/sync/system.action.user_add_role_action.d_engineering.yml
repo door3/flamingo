@@ -1,0 +1,14 @@
+uuid: 0b808929-da5e-4abf-aff0-a525a1a604b4
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.d_engineering
+  module:
+    - user
+id: user_add_role_action.d_engineering
+label: 'Add the D|Engineering role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: d_engineering

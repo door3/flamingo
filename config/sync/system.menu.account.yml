@@ -1,0 +1,10 @@
+uuid: fb3989ed-35f3-42aa-96c6-095b31fb7de0
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: M_Bh81osDyUQ4wV0GgU_NdBNqkzM87sLxjaCdFj9mnw
+id: account
+label: 'User log out menu'
+description: 'Links related to the active user account'
+locked: true

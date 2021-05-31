@@ -1,0 +1,15 @@
+uuid: bcbb2ac2-26c2-469b-9feb-dec551fc221b
+langcode: en
+status: true
+dependencies: {  }
+name: profile_220x220
+label: 'Profile (220x220)'
+effects:
+  0fb0d486-ea4c-41a8-af95-5647a2b9ed2a:
+    uuid: 0fb0d486-ea4c-41a8-af95-5647a2b9ed2a
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 220
+      height: 220
+      anchor: center-center

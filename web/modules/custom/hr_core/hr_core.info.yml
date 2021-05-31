@@ -1,0 +1,7 @@
+name: HR Core
+type: module
+description: Module run alerts, preprocces and updates.
+core_version_requirement: 9.x
+package: HR
+dependencies:
+  - block

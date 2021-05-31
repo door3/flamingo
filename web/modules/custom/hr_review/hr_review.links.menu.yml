@@ -1,0 +1,4 @@
+hr_review.product_link:
+  class: Drupal\hr_review\Plugin\Menu\ReviewMenuLink
+  deriver: Drupal\hr_review\Plugin\Derivative\ReviewMenuLink
+  menu_name: manager-review-menu

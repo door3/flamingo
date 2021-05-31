@@ -1,0 +1,14 @@
+uuid: 989225e4-9eb2-49dc-892e-81d6a963df45
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.secondary_reviewer
+  module:
+    - user
+id: user_remove_role_action.secondary_reviewer
+label: 'Remove the Secondary reviewer role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: secondary_reviewer

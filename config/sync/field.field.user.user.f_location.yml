@@ -1,0 +1,21 @@
+uuid: 8b24cf1d-13a8-45ef-9f67-08bb900b8ceb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.f_location
+  module:
+    - options
+    - user
+id: user.user.f_location
+field_name: f_location
+entity_type: user
+bundle: user
+label: Location
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

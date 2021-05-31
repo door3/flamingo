@@ -1,0 +1,15 @@
+hr_core.admin:
+  path: '/admin/review'
+  defaults:
+    _title: 'Review'
+    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
+  requirements:
+    _permission: 'access administration pages'
+
+hr_core.admin.settings:
+  path: '/admin/review/settings'
+  defaults:
+    _title: 'Review Settings'
+    _form: \Drupal\hr_core\Form\ReviewSettingsForm
+  requirements:
+    _permission: 'administer site configuration'

@@ -1,0 +1,9 @@
+uuid: 0012da23-a23a-4787-8d4b-b2007e1ff20e
+langcode: en
+status: true
+dependencies: {  }
+id: d_user_experience_design
+label: 'D|User Experience Design'
+weight: 2
+is_admin: null
+permissions: {  }

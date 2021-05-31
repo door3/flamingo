@@ -1,0 +1,14 @@
+uuid: b7ae647d-ec81-49ed-87ef-3f8dfefa0400
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.d_user_experience_design
+  module:
+    - user
+id: user_add_role_action.d_user_experience_design
+label: 'Add the D|User Experience Design role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: d_user_experience_design

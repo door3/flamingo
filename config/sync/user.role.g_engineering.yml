@@ -1,0 +1,9 @@
+uuid: 4740dcda-caad-45d7-a2eb-100579e5396a
+langcode: en
+status: true
+dependencies: {  }
+id: g_engineering
+label: G|Engineering
+weight: 6
+is_admin: null
+permissions: {  }

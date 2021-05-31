@@ -1,0 +1,7 @@
+name: HR Review
+type: module
+description: Module for review functionality.
+core_version_requirement: 9.x
+package: HR
+dependencies:
+  - block

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1057px" height="275px" viewBox="0 0 1057 275" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>Untitled</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Untitled">
+            <g id="Group-2-Copy-2">
+                <path d="M147.5,5.77350269 L246.578493,62.9764973 C252.766515,66.5491532 256.578493,73.1516936 256.578493,80.2970054 L256.578493,194.702995 C256.578493,201.848306 252.766515,208.450847 246.578493,212.023503 L147.5,269.226497 C141.311978,272.799153 133.688022,272.799153 127.5,269.226497 L28.421507,212.023503 C22.2334854,208.450847 18.421507,201.848306 18.421507,194.702995 L18.421507,80.2970054 C18.421507,73.1516936 22.2334854,66.5491532 28.421507,62.9764973 L127.5,5.77350269 C133.688022,2.20084679 141.311978,2.20084679 147.5,5.77350269 Z" id="Polygon" fill="#FFFFFF"></path>
+                <g id="Group" transform="translate(82.000000, 46.000000)" stroke="#411B71" stroke-linecap="round" stroke-width="10">
+                    <path d="M0.617021277,28.1626167 L0.617021277,162.474026" id="Line"></path>
+                    <path d="M24.0638298,178.597403 L0.617021277,165.298524" id="Line"></path>
+                    <path d="M0.617021277,28.1626167 L46.893617,0" id="Line"></path>
+                    <path d="M30.2340426,76.8961039 L30.2340426,49.0144836" id="Line"></path>
+                    <path d="M30.2340426,146.350649 L30.2340426,118.469029" id="Line"></path>
+                    <path d="M49.9787234,189.75974 L49.9787234,132.111886" id="Line"></path>
+                    <path d="M80.212766,111.623377 L49.9787234,132.111886" id="Line"></path>
+                    <path d="M80.212766,85.5779221 L30.2340426,118.469029" id="Line"></path>
+                    <path d="M80.212766,85.5779221 L114.765957,105.422078" id="Line"></path>
+                    <path d="M80.8297872,17.3636364 L30.8510638,49.0144836" id="Line"></path>
+                    <path d="M80.212766,17.3636364 L114.765957,33.487013" id="Line"></path>
+                    <path d="M116,73.7954545 L114.765957,33.487013" id="Line"></path>
+                    <path d="M116,73.7954545 L80.212766,53.6412338" id="Line"></path>
+                    <path d="M54.9148936,69.4545455 L80.212766,53.6412338" id="Line"></path>
+                </g>
+            </g>
+            <g id="FLAMINGO" transform="translate(277.000000, 17.000000)" fill="#FFFFFF" font-family="Krungthep" font-size="144" font-weight="bold" line-spacing="187">
+                <text>
+                    <tspan x="0" y="146">FLAMINGO</tspan>
+                </text>
+            </g>
+            <g id="REVIEW-TOOOL" transform="translate(286.000000, 187.000000)" fill="#FFFFFF" font-family="DINAlternate-Bold, DIN Alternate" font-size="60" font-weight="bold">
+                <text id="REVIEW-TOOL">
+                    <tspan x="0" y="56">REVIEW TOOL</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>

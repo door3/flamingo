@@ -1,0 +1,214 @@
+// Page: Content
+// -----------------------------------------------------------------------------
+.page__content {
+
+}
+
+.pages {
+  //background-color: #faf9f7;
+}
+
+
+.compare-reviews {
+  .views-row {
+    @extend .pr-2;
+  }
+
+  .views-field-webform-id {
+    text-align: center;
+  }
+
+  .views-field-uid {
+    text-align: center;
+    font-size: 1.2rem;
+    padding-bottom: 2rem;
+  }
+}
+
+
+.page-login {
+  .login-form-section,
+  .info-section {
+    min-height: 100vh;
+  }
+
+  .login-form-section {
+    background-color: $white;
+
+    .project-support {
+      width: 100%;
+      font-family: 'Oxygen', sans-serif;
+      font-weight: 400;
+      color: $ripe-plum;
+      font-size: 1rem;
+    }
+
+    label {
+      text-transform: uppercase;
+      color: #536370;
+      font-size: 14px;
+    }
+  }
+
+  .info-section {
+    background-color: $magnolia;
+
+    .welcome-text,
+    .welcome-sub-text,
+    .welcome-logo {
+      width: 100%;
+
+      @include media-breakpoint-up(md) {
+        width: 80%;
+      }
+
+      @include media-breakpoint-up(lg) {
+        width: 70%;
+      }
+    }
+
+    .project-support,
+    .welcome-text,
+    .welcome-sub-text {
+      font-family: 'Oxygen', sans-serif;
+      font-weight: 400;
+      color: $ripe-plum;
+    }
+
+    .welcome-text {
+      font-size: 2.5rem;
+    }
+
+    .welcome-sub-text {
+      font-size: 1.5rem;
+    }
+
+    .project-support {
+      font-size: 1rem;
+    }
+  }
+
+  .form-control {
+    border: 0;
+    padding: 25px !important;
+    background-color: $gray-200;
+    border-radius: 5rem;
+    color: $gray-800;
+    margin: 0 0 12px !important;
+    font-size: 18px !important;
+
+    &::placeholder {
+      color: $gray-600;
+    }
+  }
+
+  .form-item {
+    margin: 0 0 24px !important;
+  }
+
+  .text-muted {
+    padding: 0 .5rem !important;
+  }
+
+  .user-login-form,
+  .user-pass {
+    width: 100%;
+
+    @include media-breakpoint-up(lg) {
+      width: 60%;
+    }
+  }
+
+  .button {
+    text-transform: uppercase;
+    padding: 11px !important;
+    font-size: 18px !important;
+  }
+
+  .captcha {
+    border: 0;
+
+    .card-header {
+      display: none;
+    }
+
+    .card-body {
+      color: $gray-500;
+      padding: 0 .5rem !important;
+      display: flex;
+      flex-direction: column-reverse;
+      font-size: 14px;
+    }
+
+    .g-recaptcha {
+      width: 304px;
+      margin: 0 auto 12px;
+    }
+  }
+}
+
+
+.page-user {
+  .card-header {
+    display: none;
+  }
+
+  .card {
+    border: 0;
+    box-shadow: 0 4px 6px rgba($gray-400,.7), 0 5px 15px rgba($gray-400,.1);
+
+    .card {
+      box-shadow: none;
+
+      .card-body {
+        padding: 0;
+      }
+    }
+  }
+
+  .profile-items {
+    & > div {
+      @extend .w-50;
+      margin-bottom: 14px;
+    }
+  }
+
+  .user__user-picture {
+    margin-bottom: 14px;
+
+    img {
+      @extend .rounded-circle;
+    }
+  }
+
+  .form-select,
+  .form-control {
+    border: 0;
+    padding: 25px !important;
+    background-color: $gray-200;
+    border-radius: 5rem;
+    color: $gray-800;
+    margin: 0 0 12px !important;
+    font-size: 18px !important;
+
+    &::placeholder {
+      color: $gray-600;
+    }
+  }
+
+  .form-select {
+    padding: 5px 20px!important;
+    margin: 6px 0 0 !important;
+    height: 50px;
+
+    option {
+      color: $gray-600 !important;
+    }
+  }
+
+  #edit-submit {
+    text-transform: uppercase;
+    padding: 11px !important;
+    font-size: 18px !important;
+  }
+}

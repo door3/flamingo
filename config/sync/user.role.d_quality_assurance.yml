@@ -1,0 +1,9 @@
+uuid: bf3efe4c-9f9e-44cc-88d0-96623f454c2b
+langcode: en
+status: true
+dependencies: {  }
+id: d_quality_assurance
+label: 'D|Quality Assurance'
+weight: -1
+is_admin: null
+permissions: {  }

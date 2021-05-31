@@ -1,0 +1,37 @@
+uuid: e9719e8d-e034-4be7-b70e-0e432aa4fb84
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.manager_reviews
+  module:
+    - system
+    - user
+    - views
+  theme:
+    - d3hr
+id: views_block__manager_reviews_block_1
+theme: d3hr
+region: content
+weight: 1
+provider: null
+plugin: 'views_block:manager_reviews-block_1'
+settings:
+  id: 'views_block:manager_reviews-block_1'
+  label: 'Reviews from Primary manager'
+  provider: views
+  label_display: visible
+  views_label: 'Reviews from Primary manager'
+  items_per_page: '20'
+visibility:
+  request_path:
+    id: request_path
+    pages: /self-review
+    negate: false
+  user_role:
+    id: user_role
+    roles:
+      employee: employee
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'

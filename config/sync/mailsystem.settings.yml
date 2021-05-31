@@ -1,0 +1,19 @@
+theme: current
+defaults:
+  sender: devel_mail_log
+  formatter: devel_mail_log
+_core:
+  default_config_hash: IhwTepsVwtbtbcT5GzQKhCXDCRvbk3MNkWqPiuiZ10s
+modules:
+  swiftmailer:
+    none:
+      formatter: swiftmailer
+      sender: swiftmailer
+  user:
+    none:
+      formatter: swiftmailer
+      sender: swiftmailer
+  system:
+    none:
+      formatter: swiftmailer
+      sender: swiftmailer

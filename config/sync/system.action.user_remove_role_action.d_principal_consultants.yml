@@ -1,0 +1,14 @@
+uuid: 3d72ae54-af1a-40e6-85ee-1acd3ef70d62
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.d_principal_consultants
+  module:
+    - user
+id: user_remove_role_action.d_principal_consultants
+label: 'Remove the D|Principal Consultants role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: d_principal_consultants

@@ -1,0 +1,11 @@
+uuid: a0acd853-5b33-42e5-afe9-3eec411a5e77
+langcode: en
+status: true
+dependencies: {  }
+id: leadership
+label: Leadership
+weight: -6
+is_admin: null
+permissions:
+  - 'view any review pages'
+  - 'view compare reviews page'

@@ -1,0 +1,32 @@
+uuid: d1f42b89-0197-4ea1-8b33-d79d54034de3
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+    - user
+  theme:
+    - d3hr
+id: userlogin
+theme: d3hr
+region: content
+weight: -4
+provider: null
+plugin: user_login_block
+settings:
+  id: user_login_block
+  label: 'User login'
+  provider: user
+  label_display: '0'
+visibility:
+  user_role:
+    id: user_role
+    roles:
+      anonymous: anonymous
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+  request_path:
+    id: request_path
+    pages: /user/login
+    negate: false

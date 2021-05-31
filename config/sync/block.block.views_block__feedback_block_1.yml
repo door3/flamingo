@@ -1,0 +1,38 @@
+uuid: 50193347-e995-4c9e-8420-0abd70bd1501
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.feedback
+  module:
+    - system
+    - user
+    - views
+  theme:
+    - d3hr
+id: views_block__feedback_block_1
+theme: d3hr
+region: content
+weight: 2
+provider: null
+plugin: 'views_block:feedback-block_1'
+settings:
+  id: 'views_block:feedback-block_1'
+  label: '360 Feedback'
+  provider: views
+  label_display: visible
+  views_label: '360 Feedback'
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: '/primary-review/*'
+    negate: false
+  user_role:
+    id: user_role
+    roles:
+      hr_admin: hr_admin
+      primary_reviewer: primary_reviewer
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'

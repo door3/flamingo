@@ -1,0 +1,8 @@
+uuid: 33f09c2a-02b7-4b91-a850-8bebf5d00c4f
+langcode: en
+status: true
+dependencies: {  }
+id: manager-review-menu
+label: 'Manager review menu'
+description: ''
+locked: false

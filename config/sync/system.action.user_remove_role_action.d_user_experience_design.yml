@@ -1,0 +1,14 @@
+uuid: 6b62c99a-525d-4842-9f06-087c5764dd49
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.d_user_experience_design
+  module:
+    - user
+id: user_remove_role_action.d_user_experience_design
+label: 'Remove the D|User Experience Design role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: d_user_experience_design

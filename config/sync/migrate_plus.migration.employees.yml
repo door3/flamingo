@@ -1,0 +1,58 @@
+uuid: b0ba65c4-8cf5-4af9-994a-d3711bafb270
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: RdKpJqQikNoy22GnZO7Dzu2b9wN1qA-NqFPgU48UyGc
+id: employees
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags: null
+migration_group: default
+label: 'Import DOOR3: Employees list'
+source:
+  plugin: csv
+  path: modules/custom/hr_migrate/assets/csv/d3hr_employees.csv
+  ids:
+    - id
+  header_row_count: 1
+  keys:
+    - id
+  delimiter: ','
+  enclosure: '"'
+  column_names:
+    -
+      id: id
+    -
+      name: name
+    -
+      work_type: work_type
+    -
+      email: email
+    -
+      title: title
+    -
+      department: department
+    -
+      location: location
+process:
+  name: name
+  f_type_of_work: work_type
+  mail: email
+  f_title: title
+  f_department: department
+  f_location: location
+  status:
+    -
+      plugin: default_value
+      default_value: 1
+  roles:
+    -
+      plugin: default_value
+      default_value: employee
+destination:
+  plugin: 'entity:user'
+migration_dependencies:
+  required:
+    - continents

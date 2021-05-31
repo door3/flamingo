@@ -1,0 +1,14 @@
+uuid: 1c5dbed6-35eb-4ad3-899d-b34e9653ff90
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.d_operations
+  module:
+    - user
+id: user_add_role_action.d_operations
+label: 'Add the D | Operations role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: d_operations

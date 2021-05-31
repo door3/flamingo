@@ -1,0 +1,95 @@
+<?php
+
+/**
+ * @file
+ * Contains hr_core.module.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use \Drupal\Core\Entity\EntityInterface;
+use \Drupal\Core\Session\AccountInterface;
+use \Drupal\Core\Access\AccessResult;
+use \Drupal\Core\Access\AccessResultInterface;
+use Drupal\hr_core\UserAccessHandler;
+use Drupal\hr_core\WebformSubmissionAccessHandler;
+use Drupal\webform\WebformSubmissionInterface;
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function hr_core_form_user_login_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+//  $form['name']['#title_display'] = 'visible';
+  $form["name"]["#title"] = t('Email');
+  $form["name"]["#description"] = '';
+//  $form['name']['#attributes']['placeholder'] = t('john.doe@door3.com');
+//  $form["name"]["#description"] = t('Enter your first and last name.');
+//  $form['pass']['#title_display'] = 'visible';
+  $form["pass"]["#title"] = t('Password');
+  $form["pass"]["#description"] = '';
+//  $form['pass']['#attributes']['placeholder'] = t('••••');
+  $form['actions']['request_pass']['#markup'] = '<a class="d-block text-align-right mt-4 pr-2" href="/user/password">' . t('Reset your password') . '</a>';
+
+  $form['actions']['submit']['#attributes']['class'][] = 'btn-block';
+  $form['actions']['submit']['#attributes']['class'][] = 'btn-lg';
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function hr_core_form_user_pass_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $form['actions']['submit']['#attributes']['class'][] = 'btn-block';
+  $form['actions']['submit']['#attributes']['class'][] = 'btn-lg';
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function hr_core_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if (isset($form['#webform_id'])) {
+    // Remove Submission Information and Navigation.
+    unset($form['navigation']);
+    unset($form['information']);
+  }
+
+  if ($form['#form_id'] === 'user_form') {
+    $form['actions']['submit']['#attributes']['class'][] = 'btn-block';
+    $form['actions']['submit']['#attributes']['class'][] = 'btn-lg';
+  }
+
+}
+
+/**
+ * Implements hook_preprocess().
+ */
+function hr_core_preprocess_menu(&$variables, $hook) {
+  $variables['#cache']['max-age'] = 0;
+}
+
+/**
+ * Implements hook_preprocess().
+ */
+function hr_core_preprocess_webform_submission(&$variables, $hook) {
+  // Remove Submission Information and Navigation.
+  unset($variables['navigation']);
+  unset($variables['information']);
+}
+
+/**
+ *
+ * Implements hook_ENTITY_TYPE_access() for User(Employee).
+ */
+function hr_core_user_access(EntityInterface $entity, $operation, AccountInterface $account) {
+  \Drupal::service('class_resolver')
+    ->getInstanceFromDefinition(UserAccessHandler::class)
+    ->access($entity, $operation, $account);
+}
+
+/**
+ *
+ * Implements hook_ENTITY_TYPE_access() for WebForm Submissions.
+ */
+function hr_core_webform_submission_access(WebformSubmissionInterface $webform_submission, $operation, AccountInterface $account) {
+  return \Drupal::service('class_resolver')
+    ->getInstanceFromDefinition(WebformSubmissionAccessHandler::class)
+    ->access($webform_submission, $operation, $account);
+}

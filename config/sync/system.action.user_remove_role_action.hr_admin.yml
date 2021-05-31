@@ -1,0 +1,14 @@
+uuid: 783365fc-42ab-4a6e-aaf6-59535ed47535
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.hr_admin
+  module:
+    - user
+id: user_remove_role_action.hr_admin
+label: 'Remove the HR Admin role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: hr_admin

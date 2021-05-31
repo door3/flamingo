@@ -1,0 +1,32 @@
+uuid: 85fa5083-1b06-4ad7-b2e7-28966f8e5691
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+    - user
+  theme:
+    - d3hr
+id: pagetitle
+theme: d3hr
+region: content
+weight: -9
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  provider: core
+  label_display: '0'
+visibility:
+  user_role:
+    id: user_role
+    roles:
+      authenticated: authenticated
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+  request_path:
+    id: request_path
+    pages: /user/password
+    negate: true

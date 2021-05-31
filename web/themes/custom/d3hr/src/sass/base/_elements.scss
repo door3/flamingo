@@ -1,0 +1,207 @@
+html, body {
+  min-height: 100vh;
+}
+
+
+// Headings
+// -----------------------------------------------------------------------------
+h1, h2, h3, h4, h5, h6 {
+
+}
+
+// Text
+// -----------------------------------------------------------------------------
+p {
+
+}
+
+// Links
+// -----------------------------------------------------------------------------
+a {
+
+  @include hover {
+
+  }
+}
+
+// Lists
+// -----------------------------------------------------------------------------
+ol,
+ul,
+dl {
+
+}
+
+// Image
+// -----------------------------------------------------------------------------
+img {
+
+}
+
+figure {
+
+}
+
+figcaption {
+
+}
+
+// Other
+// -----------------------------------------------------------------------------
+blockquote {
+
+}
+
+strong {
+
+}
+
+small {
+
+}
+
+.table-responsive {
+  box-shadow: 0 4px 6px rgba($gray-400,.7), 0 5px 15px rgba($gray-400,.1);
+  border-radius: .5rem;
+}
+
+table {
+  background-color: $white;
+  border-collapse: collapse;
+  border-radius: .5rem;
+  border: 0;
+  overflow: hidden;
+  margin: 0 !important;
+
+  .bg-light {
+    background-color: $lavender-gray !important;
+  }
+
+  td {
+    font-size: 14px;
+    color: $mirage;
+    border-right: 0 !important;
+    border-left: 0 !important;
+  }
+
+  thead {
+    th {
+      font-size: 14px;
+      text-transform: uppercase;
+      color: $shuttle-gray;
+      border-top: 0 !important;
+      border-left: 0 !important;
+      border-right: 0 !important;
+    }
+  }
+
+  ul {
+    list-style: none;
+  }
+}
+
+body {
+  background: #faf9f7;
+}
+
+.nav-link.is-active {
+  @extend .active;
+}
+.is-active {
+  @extend .active;
+}
+
+.card-body {
+
+}
+
+.second-line {
+  color: $gray-600 !important;
+  font-size: 14px;
+}
+
+.views-exposed-form {
+  label {
+    color: $gray-600;
+  }
+
+  .form-select,
+  .form-control {
+    border: 0;
+    border-bottom: 1px solid $gray-600;
+    padding: 20px !important;
+    background-color: transparent;
+    border-radius: 0;
+    color: $gray-600;
+    margin: 0 0 12px !important;
+    font-size: 14px !important;
+
+    &::placeholder {
+      color: $gray-600;
+    }
+  }
+
+  .form-select {
+    padding: 5px !important;
+    margin: 6px 0 0 !important;
+
+    option {
+      color: $gray-600 !important;
+    }
+  }
+}
+
+.form-required,
+#edit-core-values--wrapper .description h6 {
+  &:after {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    margin: 0 0.3em;
+    content: "";
+    vertical-align: super;
+    /* Use a background image to prevent screen readers from announcing the text. */
+    background-image: url(../../../../../core/misc/icons/ee0000/required.svg);
+    background-repeat: no-repeat;
+    background-size: 6px 6px;
+  }
+}
+
+.alert {
+  @extend .fixed-top;
+  top: 5rem;
+  left: 3rem;
+  right: 3rem;
+  border-radius: 20rem;
+}
+
+.text-muted {
+  padding: 0 !important;
+  margin-top: 0;
+  color: $gray-500 !important;
+  font-size: 14px;
+}
+
+.btn {
+  border-radius: 5rem;
+}
+
+
+.text-dark {
+  color: #4d4d4c !important;
+
+  h2 {
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1.25;
+    color: #4d4d4c !important;
+  }
+}
+
+.text-gray {
+  color: $gray-500 !important;
+
+  h2 {
+    color: $gray-500 !important;
+  }
+}

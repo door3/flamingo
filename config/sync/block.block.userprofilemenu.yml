@@ -1,0 +1,37 @@
+uuid: c7aef4b8-719f-4d20-b7cc-3e9f49ac33ce
+langcode: en
+status: false
+dependencies:
+  config:
+    - system.menu.user-profile-menu
+  module:
+    - system
+    - user
+  theme:
+    - d3hr
+id: userprofilemenu
+theme: d3hr
+region: content
+weight: -8
+provider: null
+plugin: 'system_menu_block:user-profile-menu'
+settings:
+  id: 'system_menu_block:user-profile-menu'
+  label: 'User Profile menu'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  request_path:
+    id: request_path
+    pages: '/user/*'
+    negate: false
+  user_role:
+    id: user_role
+    roles:
+      employee: employee
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'

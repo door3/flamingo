@@ -1,0 +1,38 @@
+uuid: f2ae74b1-7418-4056-b762-a6b37c2c2e2f
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.360-feedback-menu
+  module:
+    - system
+    - user
+  theme:
+    - d3hr
+id: 360feedbackmenu
+theme: d3hr
+region: content
+weight: -5
+provider: null
+plugin: 'system_menu_block:360-feedback-menu'
+settings:
+  id: 'system_menu_block:360-feedback-menu'
+  label: '360 Feedback menu'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  user_role:
+    id: user_role
+    roles:
+      administrator: administrator
+      employee: employee
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+  request_path:
+    id: request_path
+    pages: "/feedback\r\n/form/2020-performance-review-360-feed\r\n/feedback-by-you\r\n/2020-performance-review-360-feedback\r\n/webform/2020_performance_review_360*"
+    negate: false

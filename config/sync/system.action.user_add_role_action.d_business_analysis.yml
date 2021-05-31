@@ -1,0 +1,14 @@
+uuid: 75129cf5-a4ec-4813-bac7-20b15c5de29d
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.d_business_analysis
+  module:
+    - user
+id: user_add_role_action.d_business_analysis
+label: 'Add the D|Business Analysis role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: d_business_analysis

@@ -1,0 +1,28 @@
+uuid: a6a833f4-3395-47e5-bb5b-d2a4fe04d9c5
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+    - user
+  theme:
+    - d3hr
+id: mainpagecontent
+theme: d3hr
+region: content
+weight: -3
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility:
+  user_role:
+    id: user_role
+    roles:
+      authenticated: authenticated
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'

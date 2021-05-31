@@ -1,0 +1,52 @@
+uuid: 5ce78ca9-8aed-4fee-a431-86c14f558049
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.user.compact
+    - field.field.user.user.f_department
+    - field.field.user.user.f_eligibility
+    - field.field.user.user.f_hire_date
+    - field.field.user.user.f_location
+    - field.field.user.user.f_secondary_reviewer
+    - field.field.user.user.f_termination_date
+    - field.field.user.user.f_title
+    - field.field.user.user.f_type_of_work
+    - field.field.user.user.f_your_line_manager
+    - field.field.user.user.user_picture
+    - image.style.thumbnail
+  module:
+    - svg_image
+    - user
+_core:
+  default_config_hash: '-cLsS3M3JycipXQt9rEb81_HxKneReoGuRh8ijcOPXs'
+id: user.user.compact
+targetEntityType: user
+bundle: user
+mode: compact
+content:
+  masquerade:
+    weight: 50
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  user_picture:
+    type: image
+    weight: 0
+    region: content
+    settings:
+      image_style: thumbnail
+      image_link: content
+    third_party_settings: {  }
+    label: hidden
+hidden:
+  f_department: true
+  f_eligibility: true
+  f_hire_date: true
+  f_location: true
+  f_secondary_reviewer: true
+  f_termination_date: true
+  f_title: true
+  f_type_of_work: true
+  f_your_line_manager: true
+  member_for: true

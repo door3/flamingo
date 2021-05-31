@@ -1,0 +1,14 @@
+uuid: 383a106b-c76f-4200-83fd-ceeae916c27a
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.d_quality_assurance
+  module:
+    - user
+id: user_remove_role_action.d_quality_assurance
+label: 'Remove the D|Quality Assurance role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: d_quality_assurance

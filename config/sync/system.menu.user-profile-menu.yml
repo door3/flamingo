@@ -1,0 +1,8 @@
+uuid: 7f64e4d0-43c0-4756-b5ae-c9becee99fe4
+langcode: en
+status: true
+dependencies: {  }
+id: user-profile-menu
+label: 'User profile menu'
+description: ''
+locked: false

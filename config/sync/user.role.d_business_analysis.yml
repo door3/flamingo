@@ -1,0 +1,9 @@
+uuid: 62162d3e-3ebf-47c6-a8d1-ca40ccce1738
+langcode: en
+status: true
+dependencies: {  }
+id: d_business_analysis
+label: 'D|Business Analysis'
+weight: 0
+is_admin: null
+permissions: {  }

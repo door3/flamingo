@@ -1,0 +1,13 @@
+uuid: 294eb103-a7c2-4c11-8594-35590aa3a2b4
+langcode: en
+status: true
+dependencies: {  }
+id: secondary_reviewer
+label: 'Secondary reviewer'
+weight: -4
+is_admin: null
+permissions:
+  - 'access user profiles'
+  - 'edit own webform submission'
+  - 'view any webform submission'
+  - 'view own webform submission'

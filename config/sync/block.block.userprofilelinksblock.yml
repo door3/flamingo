@@ -1,0 +1,33 @@
+uuid: c8398ed4-4774-42a0-a353-161a5cb785a1
+langcode: en
+status: true
+dependencies:
+  module:
+    - hr_core
+    - system
+    - user
+  theme:
+    - d3hr
+id: userprofilelinksblock
+theme: d3hr
+region: content
+weight: -7
+provider: null
+plugin: hr_core_user_profile_links
+settings:
+  id: hr_core_user_profile_links
+  label: 'User Profile links block'
+  provider: hr_core
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: "/user/*\r\n/user/*/edit\r\n"
+    negate: false
+  user_role:
+    id: user_role
+    roles:
+      employee: employee
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'

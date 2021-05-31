@@ -1,0 +1,35 @@
+uuid: 4f4e04a9-fa0a-425a-ad1f-5a8d460f9c08
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.leadership-menu
+  module:
+    - system
+    - user
+  theme:
+    - d3hr
+id: leadershiphrdashboard
+theme: d3hr
+region: sidebar_left
+weight: -6
+provider: null
+plugin: 'system_menu_block:leadership-menu'
+settings:
+  id: 'system_menu_block:leadership-menu'
+  label: 'Leadership & HR dashboard'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  user_role:
+    id: user_role
+    roles:
+      administrator: administrator
+      hr_admin: hr_admin
+      leadership: leadership
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'

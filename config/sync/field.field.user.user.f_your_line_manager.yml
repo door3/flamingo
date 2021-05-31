@@ -1,0 +1,30 @@
+uuid: f5d6a52b-384c-48d3-a5c4-b014c0bd34b9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.f_your_line_manager
+  module:
+    - user
+id: user.user.f_your_line_manager
+field_name: f_your_line_manager
+entity_type: user
+bundle: user
+label: 'Primary reviewer'
+description: 'This is your Primary reviewer.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings:
+    include_anonymous: true
+    filter:
+      type: _none
+    target_bundles: null
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+field_type: entity_reference

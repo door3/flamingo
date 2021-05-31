@@ -1,0 +1,7 @@
+name: HR Migrate
+type: module
+description: Module run process migration.
+core_version_requirement: 9.x
+package: HR
+dependencies:
+  - block

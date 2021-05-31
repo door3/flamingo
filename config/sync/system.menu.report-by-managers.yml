@@ -1,0 +1,8 @@
+uuid: 9f68c884-013e-4859-8756-f9e3ebe6e992
+langcode: en
+status: true
+dependencies: {  }
+id: report-by-managers
+label: 'Report by managers'
+description: ''
+locked: false

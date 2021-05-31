@@ -1,0 +1,34 @@
+uuid: a48877cd-d72b-4d0c-8892-b60b25c9578d
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.secondary-reviewer
+  module:
+    - system
+    - user
+  theme:
+    - d3hr
+id: secondaryreviewer
+theme: d3hr
+region: sidebar_left
+weight: -7
+provider: null
+plugin: 'system_menu_block:secondary-reviewer'
+settings:
+  id: 'system_menu_block:secondary-reviewer'
+  label: 'Secondary reviewer'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  user_role:
+    id: user_role
+    roles:
+      administrator: administrator
+      secondary_reviewer: secondary_reviewer
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'

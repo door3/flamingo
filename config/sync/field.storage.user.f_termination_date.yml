@@ -1,0 +1,22 @@
+uuid: eee3a8d1-1d36-4e44-ad0e-4cf7e6e9e674
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - user
+third_party_settings:
+  field_permissions:
+    permission_type: custom
+id: user.f_termination_date
+field_name: f_termination_date
+entity_type: user
+type: timestamp
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

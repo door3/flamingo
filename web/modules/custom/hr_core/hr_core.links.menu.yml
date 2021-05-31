@@ -1,0 +1,13 @@
+hr_core.admin:
+  title: 'Review'
+  route_name: 'hr_core.admin'
+  parent: 'system.admin'
+  description: 'Administer Reviews'
+  weight: -9
+
+hr_core.admin.settings:
+  title: 'Review Settings'
+  route_name: 'hr_core.admin.settings'
+  parent: 'hr_core.admin'
+  description: 'Review Settings'
+  weight: 0

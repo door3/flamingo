@@ -1,0 +1,6 @@
+services:
+  hr_core.event_subscriber:
+    class: Drupal\hr_core\EventSubscriber\RedirectAnonymousSubscriber
+    arguments: []
+    tags:
+      - {name: event_subscriber}

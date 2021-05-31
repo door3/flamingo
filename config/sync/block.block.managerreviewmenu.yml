@@ -1,0 +1,39 @@
+uuid: f1d36437-0b24-449d-835e-879a38688baf
+langcode: en
+status: false
+dependencies:
+  config:
+    - system.menu.manager-review-menu
+  module:
+    - system
+    - user
+  theme:
+    - d3hr
+id: managerreviewmenu
+theme: d3hr
+region: content
+weight: 4
+provider: null
+plugin: 'system_menu_block:manager-review-menu'
+settings:
+  id: 'system_menu_block:manager-review-menu'
+  label: 'Manager review menu'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  request_path:
+    id: request_path
+    pages: '/review/*'
+    negate: false
+  user_role:
+    id: user_role
+    roles:
+      hr_admin: hr_admin
+      primary_reviewer: primary_reviewer
+      secondary_reviewer: secondary_reviewer
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'

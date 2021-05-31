@@ -1,0 +1,22 @@
+uuid: b3e0c002-092b-4f38-968d-36631b8f0c1e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.f_termination_date
+  module:
+    - user
+id: user.user.f_termination_date
+field_name: f_termination_date
+entity_type: user
+bundle: user
+label: 'Termination date'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1613989501
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

@@ -1,0 +1,60 @@
+id,name,work_type,email,title,department,location
+10,Jonathan Blessing,employee,jonathan.blessing@door3.com ,CEO/ Director of Marketing,leadership,new_york
+11,Pedro Dalmau,employee,pedro.dalmau@door3.com,COO/ Director of Delivery,leadership,new_york
+12,Alex Asianov,employee,alex@door3.com,"President, Principal Consultant",leadership,new_york
+13,Michael Montecuollo,employee,michael.montecuollo@door3.com,Director of Principal Consultants,leadership,new_york
+14,Michael Collins,employee,michael.collins@door3.com,Principal Consultant,pc,new_york
+15,Yisrael Frenkel,employee,Yisrael.Frenkel.@door3.com,Principal Consultant,pc,new_york
+16,Robert Miller,employee,robert.miller@door3.com,Practice Lead,engineering,new_york
+17,Denys Tarasov,employee,denys.tarasov@door3.com,Practice Lead,engineering,kyiv
+18,Alessandro Catter Martinez,employee,alessandro.catter.martinez@door3.com,Practice Lead,engineering,new_york
+19,Oleksii Maihurov,employee,oleksii.maihurov@door3.com,Architect/ Sr. Developer,engineering,kyiv
+20,Dmitriy Onypko,employee,dmitriy.onypko@door3.com,Architect/ Sr. Developer,engineering,kyiv
+21,Dmytro Komar,employee,dmytro.komar@door3.com,Sr. Developer ,engineering,kyiv
+22,Igor Dinets ,employee,igor.dinets@door3.com,Sr. Developer ,engineering,kyiv
+23,Dmytro Kushch,employee,dmitriy.kusch@door3.com,Sr. Developer ,engineering,kyiv
+24,Anton Trokhymenko,employee,anton.trokhymenko@door3.com,Sr. Developer ,engineering,kyiv
+25,Yaroslav Zakharov,employee,yaroslav.zakharov@door3.com,Sr. Developer ,engineering,kyiv
+26,Sergey Neroznaque,employee,serge.neroznaque@door3.com,Sr. Developer ,engineering,kyiv
+27,Vitalii Baziuk ,employee,vitalii.baziuk@door3.com,Developer,engineering,kyiv
+28,Denys Khismatov,employee,denys.khismatov@door3.com,Developer ,engineering,kyiv
+29,Ivan Berezhnov,employee,ivan.berezhnov@door3.com,Developer ,engineering,kyiv
+30,Andrii Voinov,employee,andrii.voinov@door3.com,Developer ,engineering,kyiv
+31,Vadym Karpenko,employee,vadym.karpenko@door3.com,Developer ,engineering,kyiv
+32,Zecheng Dong,employee,zecheng.dong@door3.com,Sr Developer,engineering,new_york
+33,Bogdan Korchagin,employee,bogdan.korchagin@door3.com,Jr Developer,engineering,kyiv
+34,Konstantin Zaigraev ,employee,konstantin.zaigraev@door3.com,Jr Developer,engineering,kyiv
+35,Jennifer Tenuto,employee,jennifer.tenuto@door3.com,Director of Finance/ Operations,leadership,new_york
+36,Tetiana Babiy,employee,tetiana.babiy@door3.com,Director of People Strategy,leadership,kyiv
+37,Kateryna Babak,employee,kateryana.babak@door3.com,Recruiter,operations,kyiv
+38,Hailey Grossel,employee,hailey.grossel@door3.com,Operations Specialist,operations,new_york
+39,Amy Lo,employee,amy.lo@doo3.com,Sr Business Analyst,pmo,new_york
+40,Bart Michalak,employee,bart.michalak@door3.com,Sr Business Analyst,pmo,new_york
+41,Matthew Kittredge,employee,Matthew.Kittredge@door3.com,Business Analyst,pmo,new_york
+42,Serena Tan,employee,serena.tan@door3.com,Practice Lead,pmo,new_york
+43,Erica Modelfino,employee,erica.modelfino@door3.com,Sr PM/ Business Analyst,pmo,new_york
+44,Valentina Kerzhentseva,employee,valentina.kerzhentseva@door3.com,Project Manager,pmo,kyiv
+45,Nikolay Nekhaienko,employee,nikolay.nekhaienko@door3.com,Project Manager,pmo,kyiv
+46,Yaroslav Siachyn,employee,yaroslav.siachyn@door3.com,Sr Project Manager,pmo,kyiv
+47,Brandon Bowlby,employee,brandon.bowlby@door3.com,Practice Lead,qa,new_york
+48,Elisei Khodolovskiy,employee,elisei.khodolovskiy@door3.com ,Sr. QA Tester,qa,kyiv
+49,Iaroslav Proskurnia,employee,iaroslav.proskurnia@door3.com,Sr. QA Tester,qa,kyiv
+50,Sergey Matyash,employee,sergey.matyash@door3.com,Sr. QA Tester,qa,kyiv
+51,Olga Khabulya,employee,olga.khabulya@door3.com,QA Tester,qa,kyiv
+52,Peter Zelenskyy ,employee,peter.zelenskyy@door3.com,QA Tester,qa,kyiv
+53,Bogdan Pysarenko,employee,bogdan.pysarenko@door3.com,QA Tester,qa,kyiv
+54,John Malloy,employee,john.malloy@door3.com,Practice Lead,ue,new_york
+55,Josephine Rahadi,employee,Josephine.Rahdi@door3.com,UX Designer,ue,new_york
+56,Rob Kovacs,employee,rob.kovas@door3.com,Sr UX Designer,ue,new_york
+57,Yue Lin,employee,yue.lin@door3.com,UX Designer,ue,new_york
+58,William Man,employee,William.Man@door3.com,UX Designer,ue,new_york
+59,Mike Pittman,employee,mike.pittman@door3.com,Sr Business Analyst,pmo,new_york
+60,Danila Rusov,employee,danila.rusov@door3.com,Developer ,engineering,kyiv
+61,Lilia Tokar,employee,lilia.tokar@door3.com,QA Tester,qa,kyiv
+62,Andrew Centeno,employee,andrew.centeno@door3.com,Jr Sys Admin ,operations,new_york
+63,Zev Gottdiener,employee,zev.gottdiener@door3.com,Jr BA,pmo,new_york
+64,Olesya Gavrik,contractor,olesya.garvik@door3.com,Accountant,operations,kyiv
+65,Artem Glinskyi ,contractor,artem.glynskyi@door3.com,Sr Developer ,engineering,kyiv
+66,Viktor Kudria ,contractor,victor.kudria@door3.com,Developer ,engineering,kyiv
+67,Nazar Mozol,contractor,nazar.mozol@door3.com,Developer ,engineering,kyiv
+68,Andrii Bilozor ,contractor,andrii.bilozor@door3.com,Developer,engineering,kyiv

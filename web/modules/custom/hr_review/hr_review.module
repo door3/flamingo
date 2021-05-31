@@ -1,0 +1,218 @@
+<?php
+
+/**
+ * @file
+ * Contains hr_review.module.
+ */
+
+use Drupal\hr_review\SelfReviewNotificationCron;
+
+/**
+ * Implements hook_preprocess_page_title().
+ */
+function hr_review_preprocess_page_title(&$variables) {
+  // Override review page title.
+  $route_name = \Drupal::routeMatch()->getRouteName();
+  $route_parameters = \Drupal::routeMatch()->getParameters();
+  $user = \Drupal::routeMatch()->getParameter('user');
+
+  if (in_array($route_name, ['hr_review.primary.review', 'hr_review.secondary.review'])) {
+    $variables['title'] = $user->getAccountName() . ' Review';
+  }
+
+  if ($route_name === 'entity.webform.user.submission' && $route_parameters->get('view_mode') === 'html') {
+    $config = \Drupal::config('hr_core.review.settings');
+    $manager_webform_id = $config->get('manager_review');
+    $employee_webform_id = $config->get('self_review');
+    $feedback_webform_id = $config->get('feedback');
+
+    $webform_submission = $route_parameters->get('webform_submission')->getData();
+
+    $title = explode(': Submission', $variables['title']);
+
+    if ($route_parameters->get('webform') === $employee_webform_id) {
+      $user = \Drupal::entityTypeManager()->getStorage('user')->load($webform_submission['author']);
+      $variables['title'] = $title[0] . ' - ' . $user->label();
+    }
+
+    if ($route_parameters->get('webform') === $manager_webform_id) {
+      $user = \Drupal::entityTypeManager()->getStorage('user')->load($webform_submission['name_of_reviewee_select']);
+      $variables['title'] = $title[0] . ' - ' . $user->label();
+    }
+
+    if ($route_parameters->get('webform') === $feedback_webform_id) {
+      $author = \Drupal::entityTypeManager()->getStorage('user')->load($webform_submission['author'])->label();
+      $reviewee = \Drupal::entityTypeManager()->getStorage('user')->load($webform_submission['reviewee']);
+
+      if (is_null($reviewee) && !empty($webform_submission['primary_reviewer'])) {
+        $reviewee = \Drupal::entityTypeManager()->getStorage('user')->load($webform_submission['primary_reviewer'])->label();
+      }
+      elseif (!is_null($reviewee) && empty($webform_submission['primary_reviewer'])) {
+        $reviewee = $reviewee->label();
+      }
+      else {
+        $reviewee = '-';
+      }
+
+      if ($webform_submission["is_anonymous"]) {
+        $author = 'Anonymous';
+      }
+
+      $variables['title'] = $title[0] . ': from ' . $author . ' to ' . $reviewee;
+    }
+  }
+}
+
+/**
+ * Implements hook_views_data_alter().
+ */
+function hr_review_views_data_alter(array &$data) {
+  $data['users']['hr_status_self_review'] = [
+    'title' => t('Status Self Review'),
+    'field' => [
+      'title' => t('Status Self Review'),
+      'help' => t('Status Self Review.'),
+      'id' => 'hr_status_self_review',
+    ],
+  ];
+
+  $data['users']['hr_status_360'] = [
+    'title' => t('Status 360 Feedback'),
+    'field' => [
+      'title' => t('Status 360 Feedback'),
+      'help' => t('Status 360 Feedback.'),
+      'id' => 'hr_status_360',
+    ],
+  ];
+
+  $data['users']['hr_status_primary_review'] = [
+    'title' => t('Status Primary Review'),
+    'field' => [
+      'title' => t('Status Primary Review'),
+      'help' => t('Status Primary Review'),
+      'id' => 'hr_status_primary_review',
+    ],
+  ];
+
+  $data['users']['hr_status_secondary_review'] = [
+    'title' => t('Status Secondary Review'),
+    'field' => [
+      'title' => t('Status Secondary Review'),
+      'help' => t('Status Secondary Review'),
+      'id' => 'hr_status_secondary_review',
+    ],
+  ];
+
+  $data['users']['hr_status_secondary_review_status'] = [
+    'title' => t('Status Secondary Review Status'),
+    'field' => [
+      'title' => t('Status Secondary Review Status'),
+      'help' => t('Status Secondary Review Status'),
+      'id' => 'hr_status_secondary_review_status',
+    ],
+  ];
+
+  $data['users']['hr_review_status'] = [
+    'title' => t('Review Status'),
+    'field' => [
+      'title' => t('Review Status'),
+      'help' => t('Review Status.'),
+      'id' => 'hr_review_status',
+    ],
+  ];
+
+  $data['users']['hr_review_score_core_value'] = [
+    'title' => t('Score: Core Value'),
+    'field' => [
+      'title' => t('Score: Core Value'),
+      'help' => t('Score: Core Value.'),
+      'id' => 'hr_review_score_core_value',
+    ],
+  ];
+
+  $data['users']['hr_review_score_practice'] = [
+    'title' => t('Score: Practice'),
+    'field' => [
+      'title' => t('Score: Practice'),
+      'help' => t('Score: Practice.'),
+      'id' => 'hr_review_score_practice',
+    ],
+  ];
+
+  $data['users']['days_worked'] = [
+    'title' => t('Days Worked'),
+    'field' => [
+      'title' => t('Days Worked'),
+      'help' => t('Days Worked at DOOR3.'),
+      'id' => 'days_worked',
+    ],
+  ];
+
+  $data['users']['hr_report_by_primary_managers'] = [
+    'title' => t('Report by Primary Managers'),
+    'field' => [
+      'title' => t('Report by Primary Managers'),
+      'help' => t('Report by Primary Managers'),
+      'id' => 'hr_report_by_primary_managers',
+    ],
+  ];
+
+  $data['users']['hr_report_by_secondary_managers'] = [
+    'title' => t('Report by Secondary Managers'),
+    'field' => [
+      'title' => t('Report by Secondary Managers'),
+      'help' => t('Report by Secondary Managers'),
+      'id' => 'hr_report_by_secondary_managers',
+    ],
+  ];
+}
+
+function hr_review_preprocess_form_element(&$variables) {
+
+  $route_parameters = \Drupal::routeMatch()->getParameters();
+
+  if ($route_parameters->get('view_mode') === 'html') {
+    $pos = strpos($variables["element"]["#name"], '_score');
+
+    if ($pos !== false) {
+      $webform_submission = $route_parameters->get('webform_submission')->getData();
+      $score_field = $variables["name"];
+
+      $score_number = $webform_submission[$score_field];
+
+      $variables["children"] = $score_number . ' / ' . $variables["children"];
+    }
+  }
+
+  if ($route_parameters->get('view_id') === 'compare_reviews') {
+    $pos = strpos($variables["element"]["#name"], '_score');
+
+    if ($pos !== false) {
+      $value = $variables['children']->__toString();
+
+      if ($value !== 'N/A') {
+        $scores = [
+          'Does not meet expectations' => 1,
+          'Meets expectations some of the time' => 2,
+          'Meets Expectations all the time' => 3,
+          'Exceeds Expectations some of the time' => 4,
+          'Exceeds Expectations all of the time Exceeds' => 5,
+          'Exceeds Expectations all of the time' => 5,
+        ];
+
+        $score_number = $scores[$value];
+
+        $variables["children"] = $score_number . ' / ' . $variables['children'];
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_cron().
+ */
+//function hr_review_cron() {
+//  \Drupal::service('class_resolver')
+//    ->getInstanceFromDefinition(SelfReviewNotificationCron::class)
+//    ->job();
+//}

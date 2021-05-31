@@ -1,0 +1,13 @@
+uuid: a08b4bf0-7344-46e9-a04e-c28e20f79093
+langcode: en
+status: true
+dependencies: {  }
+id: primary_reviewer
+label: 'Primary reviewer'
+weight: -5
+is_admin: null
+permissions:
+  - 'access user profiles'
+  - 'edit own webform submission'
+  - 'view compare reviews page'
+  - 'view own webform submission'

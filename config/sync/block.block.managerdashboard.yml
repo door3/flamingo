@@ -1,0 +1,37 @@
+uuid: 17d20145-d4bd-4f34-8a4e-874cfe97ccda
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.manager-dashboard
+  module:
+    - system
+    - user
+  theme:
+    - d3hr
+id: managerdashboard
+theme: d3hr
+region: sidebar_left
+weight: -9
+provider: null
+plugin: 'system_menu_block:manager-dashboard'
+settings:
+  id: 'system_menu_block:manager-dashboard'
+  label: 'Primary reviewer dashboard'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  user_role:
+    id: user_role
+    roles:
+      administrator: administrator
+      hr_admin: hr_admin
+      leadership: leadership
+      primary_reviewer: primary_reviewer
+      secondary_reviewer: secondary_reviewer
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'

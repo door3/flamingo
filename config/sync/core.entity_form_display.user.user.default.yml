@@ -1,0 +1,159 @@
+uuid: 20f46027-9817-4756-9ca1-c3eb193a5721
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.user.user.f_department
+    - field.field.user.user.f_eligibility
+    - field.field.user.user.f_hire_date
+    - field.field.user.user.f_location
+    - field.field.user.user.f_secondary_reviewer
+    - field.field.user.user.f_termination_date
+    - field.field.user.user.f_title
+    - field.field.user.user.f_type_of_work
+    - field.field.user.user.f_your_line_manager
+    - field.field.user.user.user_picture
+    - image.style.thumbnail
+  module:
+    - field_group
+    - svg_image
+    - user
+third_party_settings:
+  field_group:
+    group_employee_info:
+      children:
+        - user_picture
+        - f_title
+        - f_hire_date
+        - f_termination_date
+        - f_department
+        - f_location
+        - f_your_line_manager
+        - f_secondary_reviewer
+        - f_type_of_work
+        - f_eligibility
+      parent_name: ''
+      weight: 0
+      format_type: details
+      region: content
+      format_settings:
+        description: ''
+        open: true
+        required_fields: true
+        id: ''
+        classes: ''
+      label: 'General Information'
+    group_account_settings:
+      children:
+        - account
+        - language
+        - timezone
+      parent_name: ''
+      weight: 1
+      format_type: details
+      region: content
+      format_settings:
+        description: ''
+        open: true
+        required_fields: true
+        id: ''
+        classes: ''
+      label: 'Account settings'
+_core:
+  default_config_hash: K-1rBM8mTIkFp9RqOC2tMRUukOQ1xbRCfSKK8dEddnA
+id: user.user.default
+targetEntityType: user
+bundle: user
+mode: default
+content:
+  account:
+    weight: 15
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  f_department:
+    weight: 6
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  f_eligibility:
+    weight: 11
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  f_hire_date:
+    weight: 4
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_timestamp
+    region: content
+  f_location:
+    weight: 7
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  f_secondary_reviewer:
+    weight: 9
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  f_termination_date:
+    weight: 5
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_timestamp
+    region: content
+  f_title:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  f_type_of_work:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  f_your_line_manager:
+    weight: 8
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  language:
+    weight: 16
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  timezone:
+    weight: 17
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  user_picture:
+    type: image_image
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  contact: true
+  path: true

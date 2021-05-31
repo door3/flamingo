@@ -1,0 +1,14 @@
+uuid: b400b948-6a49-46bc-9bf5-f2fbc05d50d9
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.primary_reviewer
+  module:
+    - user
+id: user_add_role_action.primary_reviewer
+label: 'Add the Primary reviewer role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: primary_reviewer

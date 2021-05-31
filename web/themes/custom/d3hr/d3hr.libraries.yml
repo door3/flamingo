@@ -1,0 +1,16 @@
+style:
+  version: VERSION
+  css:
+    theme:
+      assets/css/d3hr.style.css: {}
+      assets/css/tour.module.css: {}
+      assets/css/tour.theme.css: {}
+      '//fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap': { type: external, minified: true }
+  js:
+    assets/js/d3hr.script.js: {}
+    src/js/jquery.matchHeight.min.js: {minified: true}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - tour/tour
+    - tour/tour-styling

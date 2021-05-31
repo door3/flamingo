@@ -1,0 +1,14 @@
+uuid: 4f7abf28-bbac-4e56-b47b-467f3295289f
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.primary_reviewer
+  module:
+    - user
+id: user_remove_role_action.primary_reviewer
+label: 'Remove the Primary reviewer role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: primary_reviewer
